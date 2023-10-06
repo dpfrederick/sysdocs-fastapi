@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "sysdocs-fastapi"
+version = "0.1.0"
+description = ""
+authors = ["Dan Frederick <dpfrederick@webstaurantstore.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.103.0"
+uvicorn = "^0.23.2"
+faker = "^19.6.2"
+python-dotenv = "^1.0.0"
+pydantic-settings = "^2.0.3"
+config = "^0.5.1"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.1.0"
+black = "^23.7.0"
+nox = "^2023.4.22"
+pytest = "^7.4.1"
+poethepoet = "^0.23.0"
+
+[tool.poe.tasks]
+test = "pytest -v"
+check-tests = " pytest --collect-only -v"
+run = "uvicorn src.main:app --reload"
+lint = "local.lint:main"
+
+[tool.pytest.ini_options]
+markers = []
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
