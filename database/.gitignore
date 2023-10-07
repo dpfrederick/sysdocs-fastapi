@@ -1,0 +1,4 @@
+.env
+sql/create_users.sql
+logs
+data
